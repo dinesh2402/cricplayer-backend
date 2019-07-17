@@ -1,0 +1,70 @@
+version: '3'
+services:
+  eurekaServer:
+    image: dinpatna/sbadocker:eurekaserver
+    ports:
+    - 8761:8761
+    restart: always
+    network_mode: host
+  zuulServer:
+    image: dinpatna/sbadocker:zuulservice
+    ports:
+    - 8765:8765
+    restart: always
+    network_mode: host
+    depends_on:
+    - eurekaServer
+  userService:
+    image: dinpatna/sbadocker:userservice
+    ports:
+    - 8500:8500
+    restart: always
+    network_mode: host
+    depends_on:
+    - mysql
+    - eurekaServer
+  favouriteService:
+    image: dinpatna/sbadocker:favouriteservice
+    ports:
+    - 8501:8501
+    restart: always
+    network_mode: host
+    depends_on:
+    - mongo
+    - rabbitmq
+    - eurekaServer
+  recommendationService:
+    image: dinpatna/sbadocker:recommendationservice
+    ports:
+    - 8502:8502
+    restart: always
+    network_mode: host
+    depends_on:
+    - mongo
+    - rabbitmq
+    - eurekaServer
+  mysql:
+    image: mysql:5.5
+    ports:
+    - 3306:3306
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: SBASchema
+      MYSQL_USER: root
+      MYSQL PASSWORD: password
+  mongo:
+    image: mongo:3.2-jessie
+    ports:
+    - 27017:27017
+    container_name: mongo
+    network_mode: host
+    healthcheck:
+      test: exit 0
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+    - 15672:15672
+    - 5672:5672
+    healthcheck:
+      test: exit 0
