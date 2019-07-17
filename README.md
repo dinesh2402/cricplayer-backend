@@ -92,3 +92,4 @@ https://www.cricapi.com/how-to-use/player-finder.aspx
 - Create Eureka server and make other services as client
 
 - Demonstrate the entire application
+
