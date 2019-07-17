@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.stackroute.playerrecommendationservice.PlayerRecommendationServiceApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 37.199 s - in com.stackroute.playerrecommendationservice.PlayerRecommendationServiceApplicationTests

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: PlayerRecommendationService
+Implementation-Version: 1.0
+Built-By: Dinesh
+Implementation-Vendor-Id: com.stackroute
+Build-Jdk: 1.8.0_181
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/cplayers/playerrecommendationservice
+Created-By: Maven Integration for Eclipse
+
